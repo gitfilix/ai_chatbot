@@ -4,8 +4,8 @@ import ChatBotStart from "./Components/ChatBotStart"
 
 const App = () => {
   return (
-    <div>
-      <h1>AI Chat Bot</h1>
+    <div className='container'>
+      <h1>FLX Chat Bot</h1>
       <ChatBotStart />
     </div>
   )
