@@ -1,0 +1,10 @@
+my notes for this udemy course. 
+--------------------------------
+
+have a look at vite 
+https://vite.dev/
+
+npm create vite@latest ai-chat-bot -- --template react
+
+
+
