@@ -13,7 +13,9 @@ const App = () => {
 
   const handleStartChat = () => {
     // TODO: lets wait for 250ms before we start chatting
+    setTimeout(() => {
       setIsChatting(true)
+    }, 300)
     
     if (chats.length === 0) {
       createNewChat()
@@ -25,12 +27,18 @@ const App = () => {
     setIsChatting(false)
   }
 
-  const createNewChat = () => {
+  const createNewChat = (initialMsg = '') => {
     // create a new chat object
     const newChat = {
       id: uuidv4(),
       displayId: `Chat ${new Date().toLocaleDateString('de-DE')} ${new Date().toLocaleTimeString()}`,
-      messages: [],
+      messages: 
+        initialMsg 
+        ? [{
+          type: 'prompt',
+          text: initialMsg, 
+          timestamp: new Date().toLocaleTimeString()}]
+        : [],
     }
 
     const updatedChats = [newChat, ...chats]

@@ -26,28 +26,35 @@ const ChatBotApp = ({ onGoBack, chats, setChats, activeChat, setActiveChat, onNe
       timestamp: new Date().toLocaleString()
     }
 
-    // update the messages with the new message
-    const updatedMessages = [...messages, newMessage]
-    setMessages(updatedMessages)
-    
-    // clear the input field by setting the input field value to an empty string
-    setInputValue('')
-
-    // updatedChats: update the chats with the new messages, if the chat is the first chat
-    // in the chats array, update the messages with the updated messages
-    const updatedChats = chats.map((chat) => {
-      // if the chat is the active chat in the chats array we update the messages
-      if (chat.id === activeChat) {
-        return {
-          ...chat,
-          messages: updatedMessages
+    // if there is no active chat, create a new chat with the input value
+    if(!activeChat) {
+      onNewChat(inputValue)
+      setInputValue('')
+    } else {
+      // if there is an active chat, get the messages of the active chat
+      const updatedMessages = [...messages, newMessage]
+      setMessages(updatedMessages)
+      
+      // clear the input field by setting the input field value to an empty string
+      setInputValue('')
+  
+      // updatedChats: update the chats with the new messages, if the chat is the first chat
+      // in the chats array, update the messages with the updated messages
+      const updatedChats = chats.map((chat) => {
+        // if the chat is the active chat in the chats array we update the messages
+        if (chat.id === activeChat) {
+          return {
+            ...chat,
+            messages: updatedMessages
+          }
         }
-      }
-      // otherwise we return the chat as it is
-      return chat
-    })
-    setChats(updatedChats)
+        // otherwise we return the chat as it is
+        return chat
+      })
+      setChats(updatedChats)
+    }
   }
+
 
   // keyboard event listener for enter key
   const handleKeyDown = (e) => {
