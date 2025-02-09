@@ -176,3 +176,24 @@
     display: flex;
     justify-content: center;
 }
+
+.msg-input {
+    height: 100%;
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color:#7b8ebc;
+}
+
+.msg-input::placeholder {
+    color: #7b8ebc;
+    font-size: 1.8rem;
+    font-family: 'Exo 2', sans-serif;
+    color: #7b8ebc;
+}
+
+.msg-input:focus::placeholder {
+    opacity: 0 ;
+}

@@ -40,9 +40,8 @@ const ChatBotApp = () => {
         </div>
         <form className='msg-form'>
           <i className='fa-solid  fa-face-smile emoji'></i>
-          <input type='text' placeholder='Type a message' />
+          <input type='text' placeholder='Ask me anything..' className='msg-input' />
           <i className='fa-solid fa-paper-plane'></i>
-
         </form>
       </div>
     </div>
